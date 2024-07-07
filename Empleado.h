@@ -1,55 +1,58 @@
-#ifndef EMPLEADOS_H
-#define EMPLEADOS_H
-#include <iostream>
+#ifndef EMPLEADO_H
+#define EMPLEADO_H
+
+#include <string>
 #include <vector>
 
-using namespace std;
-
-enum class Rol
-{
-    cocinero,
-    pastelero,
-    mesero,
-    manager
+enum class Rol {
+    PASTELERO,
+    COCINERO,
+    MESERO,
+    MANAGER
 };
 
-class Empleado
-{
-    private:
-        /* data */
-        int id;
-        string nombre;
-        double salario;
-        vector<bool> disponibilidad;
-        int vacacionesDisponibles;
-        Rol rol;
+class Empleado {
+private:
+    std::string nombre;
+    Rol rol;
+    std::vector<int> diasVacaciones; // Días del mes  en los que el empleado tomará vacaciones (1-31)
+    std::vector<bool> disponibilidad; // Disponibilidad para cada día de la semana
 
-    public:
-        Empleado(int id, string nombre, double salario, vector<bool> disponibilidad, int vacacionesDisponibles, Rol rol){
-            this->id = id;
-            this->nombre = nombre;
-            this->salario = salario;
-            this->disponibilidad = disponibilidad;
-            this->vacacionesDisponibles = vacacionesDisponibles;
-            this->rol = rol;
-        };
+public:
+    Empleado(const std::string& nombre, Rol rol, const std::vector<int>& diasVacaciones, const std::vector<bool>& disponibilidad)
+        : nombre(nombre), rol(rol), diasVacaciones(diasVacaciones), disponibilidad(disponibilidad) {}
 
-        void getEmpleado()
-        {
-            cout << "ID: " << id << endl;
-            cout << "Nombre: " << nombre << endl;
-            cout << "Salario: " << salario << endl;
-            cout << "Disponibilidad: ";
-            for (long unsigned int i = 0; i < disponibilidad.size(); i++)
-            {
-                cout << disponibilidad[i] << " ";
-            }
-            cout << endl;
-            cout << "Vacaciones Disponibles: " << vacacionesDisponibles << endl;
+    std::string getNombre() const { return nombre; }
+    Rol getRol() const { return rol; }
+    std::vector<int> getDiasVacaciones() const { return diasVacaciones; }
+    std::vector<bool> getDisponibilidad() const { return disponibilidad; }
+
+    void setNombre(const std::string& nombre) { this->nombre = nombre; }
+    void setRol(Rol rol) { this->rol = rol; }
+    void setDiasVacaciones(const std::vector<int>& diasVacaciones) { this->diasVacaciones = diasVacaciones; }
+    void setDisponibilidad(const std::vector<bool>& disponibilidad) { this->disponibilidad = disponibilidad; }
+
+    std::string toString() const {
+        std::string diasVacacionesStr;
+        for (int dia : diasVacaciones) {
+            diasVacacionesStr += std::to_string(dia) + " ";
         }
-    };
+        return nombre + " - " + rolToString() + " - Días de vacaciones: " + diasVacacionesStr;
+    }
 
+    std::string rolToString() const {
+        return rolToString(rol);
+    }
 
+    static std::string rolToString(Rol rol) {
+        switch (rol) {
+            case Rol::PASTELERO: return "Pastelero";
+            case Rol::COCINERO: return "Cocinero";
+            case Rol::MESERO: return "Mesero";
+            case Rol::MANAGER: return "Manager";
+            default: return "Desconocido";
+        }
+    }
+};
 
-
-#endif
+#endif // EMPLEADO_H
