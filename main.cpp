@@ -75,6 +75,7 @@ Rol intToRol(int rol) {
     }
 }
 
+// Hardcodeado : 3 meseros , 1 Pastelero, 1 Cocinero, 1 Manager
 int main() {
     Restaurante restaurante;
 
@@ -86,7 +87,7 @@ int main() {
         std::cout << "Sistema de Gestión de Restaurante\n";
         std::cout << "1. Ver lista de empleados\n";
         std::cout << "2. Verificar disponibilidad\n";
-        std::cout << "3. Asignar empleados a días del mes\n";
+        std::cout << "3. Ejecutar asignaciones\n";
         std::cout << "4. Ver asignaciones\n";
         std::cout << "5. Salir\n";
         std::cout << "Seleccione una opción: ";
@@ -115,10 +116,14 @@ int main() {
                 }
                 break;
             }
-            case 3:
-                restaurante.asignarEmpleados();
+            case 3: {
+                int iteraciones;
+                std::cout << "Ingrese el número de iteraciones: ";
+                std::cin >> iteraciones;
+                restaurante.ejecutarAsignaciones(iteraciones);
                 std::cout << "Asignaciones realizadas.\n";
                 break;
+            }
             case 4:
                 restaurante.imprimirAsignaciones();
                 break;

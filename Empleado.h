@@ -53,6 +53,10 @@ public:
             default: return "Desconocido";
         }
     }
+    
+    bool operator==(const Empleado& other) const {
+        return nombre == other.nombre && rol == other.rol;
+    }
 };
 
 #endif // EMPLEADO_H
