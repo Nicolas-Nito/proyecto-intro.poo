@@ -1,0 +1,45 @@
+Nombre,Rol,Disponibilidad,Vacaciones,Telefono,Email
+Juan,Cocinero,1 1 1 1 1 1 1 ,1 2 3 4 5 6 7 ,+56 9 xxxx xxxx,example.email@mail.com
+Jose,Cocinero,1 1 1 0 1 1 1 ,8 9 10 11 12 13 14 ,56 9 xxxx xxxx,example.email@mail.com
+Rosa,Pastelero,1 1 1 1 0 1 1 ,15 16 17 18 19 20 21 ,56 9 xxxx xxxx,example.email@mail.com
+Pepe,Mesero,1 0 1 1 1 1 1 ,22 23 24 25 26 27 28 ,56 9 xxxx xxxx,example.email@mail.com
+Rodrigo,Manager,0 1 1 1 1 1 1 ,29 30 31 ,56 9 xxxx xxxx,example.email@mail.com
+Joana,Manager,1 1 0 1 1 1 1 ,1 2 3 4 5 6 7 ,56 9 xxxx xxxx,example.email@mail.com
+Ana,Cocinero,1 1 1 1 0 1 1 ,8 9 10 11 12 13 14 ,56 9 xxxx xxxx,example.email@mail.com
+Luis,Pastelero,1 1 1 0 1 1 0 ,15 16 17 18 19 20 21 ,56 9 xxxx xxxx,example.email@mail.com
+Maria,Mesero,1 1 0 1 1 0 1 ,22 23 24 25 26 27 28 ,56 9 xxxx xxxx,example.email@mail.com
+Pedro,Cocinero,1 1 1 1 1 0 1 ,29 30 31 ,56 9 xxxx xxxx,example.email@mail.com
+Carlos,Mesero,1 1 1 1 1 1 1 ,1 2 3 4 5 6 7 ,56 9 xxxx xxxx,example.email@mail.com
+Laura,Cocinero,1 1 1 0 1 1 1 ,8 9 10 11 12 13 14 ,56 9 xxxx xxxx,example.email@mail.com
+Sofia,Pastelero,1 1 1 1 0 1 1 ,15 16 17 18 19 20 21 ,56 9 xxxx xxxx,example.email@mail.com
+Miguel,Mesero,1 0 1 1 1 1 1 ,22 23 24 25 26 27 28 ,56 9 xxxx xxxx,example.email@mail.com
+Isabel,Manager,0 1 1 1 1 1 1 ,29 30 31 ,56 9 xxxx xxxx,example.email@mail.com
+Jorge,Manager,1 1 0 1 1 1 1 ,1 2 3 4 5 6 7 ,56 9 xxxx xxxx,example.email@mail.com
+Elena,Cocinero,1 1 1 1 0 1 1 ,8 9 10 11 12 13 14 ,56 9 xxxx xxxx,example.email@mail.com
+Andres,Pastelero,1 1 1 0 1 1 0 ,15 16 17 18 19 20 21 ,56 9 xxxx xxxx,example.email@mail.com
+Gabriela,Mesero,1 1 0 1 1 0 1 ,22 23 24 25 26 27 28 ,56 9 xxxx xxxx,example.email@mail.com
+Fernando,Cocinero,1 1 1 1 1 0 1 ,29 30 31 ,56 9 xxxx xxxx,example.email@mail.com
+Lucia,Pastelero,1 1 1 1 1 1 1 ,1 2 3 4 5 6 7 ,56 9 xxxx xxxx,example.email@mail.com
+Diego,Mesero,1 1 1 0 1 1 1 ,8 9 10 11 12 13 14 ,56 9 xxxx xxxx,example.email@mail.com
+Paula,Cocinero,1 1 1 1 0 1 1 ,15 16 17 18 19 20 21 ,56 9 xxxx xxxx,example.email@mail.com
+Alberto,Mesero,1 0 1 1 1 1 1 ,22 23 24 25 26 27 28 ,56 9 xxxx xxxx,example.email@mail.com
+Claudia,Manager,0 1 1 1 1 1 1 ,29 30 31 ,56 9 xxxx xxxx,example.email@mail.com
+Raul,Manager,1 1 0 1 1 1 1 ,1 2 3 4 5 6 7 ,56 9 xxxx xxxx,example.email@mail.com
+Nuria,Cocinero,1 1 1 1 0 1 1 ,8 9 10 11 12 13 14 ,56 9 xxxx xxxx,example.email@mail.com
+Victor,Pastelero,1 1 1 0 1 1 0 ,15 16 17 18 19 20 21 ,56 9 xxxx xxxx,example.email@mail.com
+Raquel,Mesero,1 1 0 1 1 0 1 ,22 23 24 25 26 27 28 ,56 9 xxxx xxxx,example.email@mail.com
+Manuel,Cocinero,1 1 1 1 1 0 1 ,29 30 31 ,56 9 xxxx xxxx,example.email@mail.com
+Eva,Mesero,1 1 1 1 1 1 1 ,1 2 3 4 5 6 7 ,56 9 xxxx xxxx,example.email@mail.com
+Hector,Cocinero,1 1 1 0 1 1 1 ,8 9 10 11 12 13 14 ,56 9 xxxx xxxx,example.email@mail.com
+Patricia,Pastelero,1 1 1 1 0 1 1 ,15 16 17 18 19 20 21 ,56 9 xxxx xxxx,example.email@mail.com
+Francisco,Mesero,1 0 1 1 1 1 1 ,22 23 24 25 26 27 28 ,56 9 xxxx xxxx,example.email@mail.com
+Gloria,Manager,0 1 1 1 1 1 1 ,29 30 31 ,56 9 xxxx xxxx,example.email@mail.com
+Eduardo,Manager,1 1 0 1 1 1 1 ,1 2 3 4 5 6 7 ,56 9 xxxx xxxx,example.email@mail.com
+Alicia,Cocinero,1 1 1 1 0 1 1 ,8 9 10 11 12 13 14 ,56 9 xxxx xxxx,example.email@mail.com
+Julio,Pastelero,1 1 1 0 1 1 0 ,15 16 17 18 19 20 21 ,56 9 xxxx xxxx,example.email@mail.com
+Sara,Mesero,1 1 0 1 1 0 1 ,22 23 24 25 26 27 28 ,56 9 xxxx xxxx,example.email@mail.com
+Marcos,Cocinero,1 1 1 1 1 0 1 ,29 30 31 ,56 9 xxxx xxxx,example.email@mail.com
+Marcos2,Pastelero,1 1 1 1 1 0 1 ,29 30 31 ,56 9 xxxx xxxx,example.email@mail.com
+Marcos3,Pastelero,1 1 1 1 1 0 1 ,29 30 31 ,56 9 xxxx xxxx,example.email@mail.com
+Marcos4,Pastelero,1 1 1 1 1 0 1 ,29 30 31 ,56 9 xxxx xxxx,example.email@mail.com
+Marcos5,Pastelero,1 1 1 1 1 0 1 ,29 30 31 ,56 9 xxxx xxxx,example.email@mail.com

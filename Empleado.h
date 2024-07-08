@@ -17,15 +17,19 @@ private:
     Rol rol;
     std::vector<int> diasVacaciones; // Días del mes  en los que el empleado tomará vacaciones (1-31)
     std::vector<bool> disponibilidad; // Disponibilidad para cada día de la semana
+    std::string numero_celular;
+    std::string correo_electronico;
 
 public:
-    Empleado(const std::string& nombre, Rol rol, const std::vector<int>& diasVacaciones, const std::vector<bool>& disponibilidad)
-        : nombre(nombre), rol(rol), diasVacaciones(diasVacaciones), disponibilidad(disponibilidad) {}
+    Empleado(const std::string& nombre, Rol rol, const std::vector<int>& diasVacaciones, const std::vector<bool>& disponibilidad, const std::string& numero_celular, const std::string& correo_electronico)
+        : nombre(nombre), rol(rol), diasVacaciones(diasVacaciones), disponibilidad(disponibilidad), numero_celular(numero_celular), correo_electronico(correo_electronico) {}
 
     std::string getNombre() const { return nombre; }
     Rol getRol() const { return rol; }
     std::vector<int> getDiasVacaciones() const { return diasVacaciones; }
     std::vector<bool> getDisponibilidad() const { return disponibilidad; }
+    std::string getNumeroCelular() const { return numero_celular; }
+    std::string getCorreoElectronico() const { return correo_electronico; }
 
     void setNombre(const std::string& nombre) { this->nombre = nombre; }
     void setRol(Rol rol) { this->rol = rol; }
@@ -56,6 +60,14 @@ public:
     
     bool operator==(const Empleado& other) const {
         return nombre == other.nombre && rol == other.rol;
+    }
+    
+    static Rol stringToRol(const std::string& rol) {
+        if (rol == "Pastelero") return Rol::PASTELERO;
+        if (rol == "Cocinero") return Rol::COCINERO;
+        if (rol == "Mesero") return Rol::MESERO;
+        if (rol == "Manager") return Rol::MANAGER;
+        return Rol::MESERO;
     }
 };
 

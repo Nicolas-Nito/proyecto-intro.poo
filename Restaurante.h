@@ -6,9 +6,14 @@
 #include <algorithm>
 #include <map>
 #include <random>
+#include <fstream> // Add this line to include the <fstream> header
+#include <sstream> // Add this line to include the <sstream> header
 #include "Empleado.h"
 //Extras para que funcione
 #include <iostream>
+#include <QFile>
+#include <QTextStream>
+#include <QMessageBox>
 
 #define MAX_DAYS 13 // Definimos el máximo de días que un empleado puede trabajar en el mes
 
@@ -38,7 +43,7 @@ public:
     Empleado buscarEmpleado(const std::string& nombre) const {
         auto it = std::find_if(empleados.begin(), empleados.end(),
             [&nombre](const Empleado& e) { return e.getNombre() == nombre; });
-        return (it != empleados.end()) ? *it : Empleado("", Rol::PASTELERO, {}, {});
+        return (it != empleados.end()) ? *it : Empleado("", Rol::PASTELERO, {}, {},"","");
     }
 
     std::vector<Empleado> getEmpleados() const { return empleados; }
@@ -200,6 +205,75 @@ public:
     std::map<int, std::vector<Empleado>> getAsignaciones() const {
         return asignaciones;
     }
+
+    void exportarCSV() const {
+        std::ofstream file("empleados.csv");
+        if (file.is_open()) {
+            file << "Nombre,Rol,Disponibilidad,Vacaciones\n";
+            for (const auto& empleado : empleados) {
+                file << empleado.getNombre() << "," << empleado.rolToString() << ",";
+                for (bool disponible : empleado.getDisponibilidad()) {
+                    file << disponible << " ";
+                }
+                file << ",";
+                for (int dia : empleado.getDiasVacaciones()) {
+                    file << dia << " ";
+                }
+                file << "\n";
+            }
+            file.close();
+        }
+    }
+
+    void importCSV() {
+        std::ifstream file(":/csv/resorce/empleados.csv");
+        if (file.is_open()) {
+            std::cout << "Finalizar csv" << std::endl;
+            std::string line;
+            std::getline(file, line); // Ignorar la primera línea
+            while (std::getline(file, line)) {
+                std::istringstream ss(line);
+                std::string nombre, rol, disponibilidad, vacaciones;
+                std::getline(ss, nombre, ',');
+                std::getline(ss, rol, ',');
+                std::getline(ss, disponibilidad, ',');
+                std::getline(ss, vacaciones, ',');
+                std::vector<bool> disponibilidadVec;
+                std::istringstream ssDisponibilidad(disponibilidad);
+                std::string token;
+                while (std::getline(ssDisponibilidad, token, ' ')) {
+                    disponibilidadVec.push_back(token == "1");
+                }
+                std::vector<int> vacacionesVec;
+                std::istringstream ssVacaciones(vacaciones);
+                while (std::getline(ssVacaciones, token, ' ')) {
+                    vacacionesVec.push_back(std::stoi(token));
+                }
+                std::string numero_celular;
+                std::getline(ss, numero_celular, ',');
+                std::string email;
+                std::getline(ss, email, ',');
+                agregarEmpleado(Empleado(nombre, Empleado::stringToRol(rol), vacacionesVec, disponibilidadVec,numero_celular,email));
+            }
+            file.close();
+        }
+        //Imprimo finalizar csv
+        
+    }
+
+    void dumpAsignacion(){
+        std::ofstream file("asignaciones.csv");
+        if (file.is_open()) {
+            file << "Dia,Nombre,Rol\n";
+            for (const auto& asignacion : asignaciones) {
+                for (const auto& empleado : asignacion.second) {
+                    file << asignacion.first << "," << empleado.getNombre() << "," << empleado.rolToString() << "\n";
+                }
+            }
+            file.close();
+        }
+    }
+
 };
 
 
