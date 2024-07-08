@@ -7,6 +7,8 @@
 #include <map>
 #include <random>
 #include "Empleado.h"
+//Extras para que funcione
+#include <iostream>
 
 #define MAX_DAYS 13 // Definimos el máximo de días que un empleado puede trabajar en el mes
 
@@ -193,6 +195,13 @@ public:
             std::cout << "\n";
         }
     }
+    
+    //Extras
+    std::map<int, std::vector<Empleado>> getAsignaciones() const {
+        return asignaciones;
+    }
 };
+
+
 
 #endif // RESTAURANTE_H
