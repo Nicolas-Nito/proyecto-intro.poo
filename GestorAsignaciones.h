@@ -6,6 +6,8 @@
 #include "Empleado.h"
 #include "Restaurante.h"
 
+#define MAX_DAYS 13 // Definimos el máximo de días que un empleado puede trabajar en el mes
+
 class GestorAsignaciones {
 private:
     Restaurante& restaurante;
@@ -65,13 +67,13 @@ public:
     Print de asignaciones en consola
     */
     void imprimirAsignaciones() const;
-    
+
     /*
     std::map<int, std::vector<Empleado>> getAsignaciones()
     
     Retorna las asignaciones
     */
-    std::map<int, std::vector<Empleado>> getAsignaciones();
+    std::map<int, std::vector<Empleado>> getAsignaciones() const;
     
     /*
     void dumpAsignacion()

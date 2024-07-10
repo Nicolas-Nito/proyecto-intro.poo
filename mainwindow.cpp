@@ -21,8 +21,8 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->btnSalir, &QPushButton::clicked, this, &QMainWindow::close);
 
     loadCSV();
-    gestor(restaurante);
-    gestor.ejecutarAsignaciones(20);
+    gestor = new GestorAsignaciones(restaurante);
+    gestor->ejecutarAsignaciones(20);
 }
 
 MainWindow::~MainWindow()
@@ -113,7 +113,7 @@ void MainWindow::verAsignaciones()
 void MainWindow::confirmarVerAsignaciones()
 {
     int dia = ui->spinBoxDiaAsignacion->value();
-    auto asignaciones = gestor.getAsignaciones();
+    auto asignaciones = gestor->getAsignaciones();
     if (asignaciones.find(dia) != asignaciones.end()) {
         QString asignacionesStr;
         //asignacionesStr += "Día " + QString::number(dia) + ": ";
