@@ -1,6 +1,6 @@
 # Sistema de Gestión de Empleados para Restaurante
 
-Este es un proyecto de QT que implementa un sistema de gestión de empleados para un restaurante. La aplicación permite gestionar la información de los empleados, incluyendo su nombre, rol, días de vacaciones y disponibilidad. Además, permite asignar empleados a turnos de trabajo y optimizar la asignación de personal.
+Este es un proyecto de QT que implementa un sistema de gestión de empleados para un restaurante. La aplicación permite ver la información de los empleados, incluyendo su nombre, rol, días de vacaciones y disponibilidad. Además, permite asignar empleados a turnos de trabajo y optimizar la asignación de personal.
 
 ## Requisitos
 
