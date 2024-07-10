@@ -22,29 +22,60 @@ private:
     std::vector<Empleado> empleados;
 
 public:
+    /*
+    void agregarEmpleado(const Empleado& empleado)
+    
+    Agrega empleados al restaurant
+    */
     void agregarEmpleado(const Empleado& empleado) {
         empleados.push_back(empleado);
     }
 
+    /*
+    void eliminarEmpleado(const std::string& nombre)
+    
+    Borra empleados por nombre
+    */
     void eliminarEmpleado(const std::string& nombre) {
         empleados.erase(std::remove_if(empleados.begin(), empleados.end(),
             [&nombre](const Empleado& e) { return e.getNombre() == nombre; }), empleados.end());
     }
 
+
+    /*
+    Empleado buscarEmpleado(const std::string& nombre) const
+    
+    Busca empleados por nombre y lo retorna
+    */
     Empleado buscarEmpleado(const std::string& nombre) const {
         auto it = std::find_if(empleados.begin(), empleados.end(),
             [&nombre](const Empleado& e) { return e.getNombre() == nombre; });
         return (it != empleados.end()) ? *it : Empleado("", Rol::PASTELERO, {}, {},"","");
     }
 
+    /*
+    std::vector<Empleado> getEmpleados() const
+    
+    Retorna todos los empleados del restaurant
+    */
     std::vector<Empleado> getEmpleados() const { return empleados; }
 
+    /*
+    bool verificarDisponibilidad(Rol rol, int dia) const
+    
+    Verifica si existe disponibilidad del rol "rol" en el dia "dia" de la semana (0-6)
+    */
     bool verificarDisponibilidad(Rol rol, int dia) const {
         int count = std::count_if(empleados.begin(), empleados.end(),
             [rol, dia](const Empleado& e) { return e.getRol() == rol && e.getDisponibilidad()[dia]; });
         return count > 0;
     }
 
+    /*
+    std::vector<Empleado> obtenerEmpleadosDisponibles(int dia) const
+    
+    Obtiene los empleados disponibles en el dia "dia" (0-6)
+    */
     std::vector<Empleado> obtenerEmpleadosDisponibles(int dia) const {
         std::vector<Empleado> disponibles;
         for (const auto& empleado : empleados) {
@@ -55,6 +86,11 @@ public:
         return disponibles;
     }
 
+    /*
+    void exportarCSV()
+    
+    Exporta el CSV de empleados
+    */
     void exportarCSV() const {
         std::ofstream file("empleados.csv");
         if (file.is_open()) {
@@ -74,6 +110,11 @@ public:
         }
     }
 
+    /*
+    void importCSV()
+    
+    Lee el CSV de empleados y añade los empleados al vector del restaurant
+    */
     void importCSV() {
         std::ifstream file(":/csv/resorce/empleados.csv");
         if (file.is_open()) {
