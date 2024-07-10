@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include "Restaurante.h"
+#include "GestorAsignaciones.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -30,6 +31,7 @@ private slots:
 private:
     Ui::MainWindow *ui;
     Restaurante restaurante;
+    GestorAsignaciones gestor;
     void loadCSV();
     Rol intToRol(int rol);
 };
