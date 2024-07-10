@@ -21,7 +21,8 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->btnSalir, &QPushButton::clicked, this, &QMainWindow::close);
 
     loadCSV();
-    restaurante.ejecutarAsignaciones(20);
+    gestor = new GestorAsignaciones(restaurante);
+    gestor->ejecutarAsignaciones(20);
 }
 
 MainWindow::~MainWindow()
@@ -31,55 +32,46 @@ MainWindow::~MainWindow()
 
 void MainWindow::loadCSV()
 {
-    // Aquí iría tu lógica para cargar los empleados desde el CSV
-    // La puedes adaptar directamente de tu función existente
-    restaurante.agregarEmpleado(Empleado("Juan", Rol::COCINERO, {1, 2, 3, 4, 5, 6, 7}, {true, true, true, true, true, true, true}));
-    restaurante.agregarEmpleado(Empleado("Jose", Rol::COCINERO, {8, 9, 10, 11, 12, 13, 14}, {true, true, true, false, true, true, true}));
-    restaurante.agregarEmpleado(Empleado("Rosa", Rol::PASTELERO, {15, 16, 17, 18, 19, 20, 21}, {true, true, true, true, false, true, true}));
-    restaurante.agregarEmpleado(Empleado("Pepe", Rol::MESERO, {22, 23, 24, 25, 26, 27, 28}, {true, false, true, true, true, true, true}));
-    restaurante.agregarEmpleado(Empleado("Rodrigo", Rol::MANAGER, {29, 30, 31}, {false, true, true, true, true, true, true}));
-    restaurante.agregarEmpleado(Empleado("Joana", Rol::MANAGER, {1, 2, 3, 4, 5, 6, 7}, {true, true, false, true, true, true, true}));
-    restaurante.agregarEmpleado(Empleado("Ana", Rol::COCINERO, {8, 9, 10, 11, 12, 13, 14}, {true, true, true, true, false, true, true}));
-    restaurante.agregarEmpleado(Empleado("Luis", Rol::PASTELERO, {15, 16, 17, 18, 19, 20, 21}, {true, true, true, false, true, true, false}));
-    restaurante.agregarEmpleado(Empleado("Maria", Rol::MESERO, {22, 23, 24, 25, 26, 27, 28}, {true, true, false, true, true, false, true}));
-    restaurante.agregarEmpleado(Empleado("Pedro", Rol::COCINERO, {29, 30, 31}, {true, true, true, true, true, false, true}));
+    QFile file(":/csv/empleados.csv");
 
-    restaurante.agregarEmpleado(Empleado("Carlos", Rol::MESERO, {1, 2, 3, 4, 5, 6, 7}, {true, true, true, true, true, true, true}));
-    restaurante.agregarEmpleado(Empleado("Laura", Rol::COCINERO, {8, 9, 10, 11, 12, 13, 14}, {true, true, true, false, true, true, true}));
-    restaurante.agregarEmpleado(Empleado("Sofia", Rol::PASTELERO, {15, 16, 17, 18, 19, 20, 21}, {true, true, true, true, false, true, true}));
-    restaurante.agregarEmpleado(Empleado("Miguel", Rol::MESERO, {22, 23, 24, 25, 26, 27, 28}, {true, false, true, true, true, true, true}));
-    restaurante.agregarEmpleado(Empleado("Isabel", Rol::MANAGER, {29, 30, 31}, {false, true, true, true, true, true, true}));
-    restaurante.agregarEmpleado(Empleado("Jorge", Rol::MANAGER, {1, 2, 3, 4, 5, 6, 7}, {true, true, false, true, true, true, true}));
-    restaurante.agregarEmpleado(Empleado("Elena", Rol::COCINERO, {8, 9, 10, 11, 12, 13, 14}, {true, true, true, true, false, true, true}));
-    restaurante.agregarEmpleado(Empleado("Andres", Rol::PASTELERO, {15, 16, 17, 18, 19, 20, 21}, {true, true, true, false, true, true, false}));
-    restaurante.agregarEmpleado(Empleado("Gabriela", Rol::MESERO, {22, 23, 24, 25, 26, 27, 28}, {true, true, false, true, true, false, true}));
-    restaurante.agregarEmpleado(Empleado("Fernando", Rol::COCINERO, {29, 30, 31}, {true, true, true, true, true, false, true}));
+    if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+        QMessageBox::critical(this, "Error", "No se pudo abrir el archivo CSV");
+        return;
+    }
 
-    restaurante.agregarEmpleado(Empleado("Lucia", Rol::PASTELERO, {1, 2, 3, 4, 5, 6, 7}, {true, true, true, true, true, true, true}));
-    restaurante.agregarEmpleado(Empleado("Diego", Rol::MESERO, {8, 9, 10, 11, 12, 13, 14}, {true, true, true, false, true, true, true}));
-    restaurante.agregarEmpleado(Empleado("Paula", Rol::COCINERO, {15, 16, 17, 18, 19, 20, 21}, {true, true, true, true, false, true, true}));
-    restaurante.agregarEmpleado(Empleado("Alberto", Rol::MESERO, {22, 23, 24, 25, 26, 27, 28}, {true, false, true, true, true, true, true}));
-    restaurante.agregarEmpleado(Empleado("Claudia", Rol::MANAGER, {29, 30, 31}, {false, true, true, true, true, true, true}));
-    restaurante.agregarEmpleado(Empleado("Raul", Rol::MANAGER, {1, 2, 3, 4, 5, 6, 7}, {true, true, false, true, true, true, true}));
-    restaurante.agregarEmpleado(Empleado("Nuria", Rol::COCINERO, {8, 9, 10, 11, 12, 13, 14}, {true, true, true, true, false, true, true}));
-    restaurante.agregarEmpleado(Empleado("Victor", Rol::PASTELERO, {15, 16, 17, 18, 19, 20, 21}, {true, true, true, false, true, true, false}));
-    restaurante.agregarEmpleado(Empleado("Raquel", Rol::MESERO, {22, 23, 24, 25, 26, 27, 28}, {true, true, false, true, true, false, true}));
-    restaurante.agregarEmpleado(Empleado("Manuel", Rol::COCINERO, {29, 30, 31}, {true, true, true, true, true, false, true}));
+    QTextStream in(&file);
+    QString line = in.readLine(); // Ignorar la primera línea
 
-    restaurante.agregarEmpleado(Empleado("Eva", Rol::MESERO, {1, 2, 3, 4, 5, 6, 7}, {true, true, true, true, true, true, true}));
-    restaurante.agregarEmpleado(Empleado("Hector", Rol::COCINERO, {8, 9, 10, 11, 12, 13, 14}, {true, true, true, false, true, true, true}));
-    restaurante.agregarEmpleado(Empleado("Patricia", Rol::PASTELERO, {15, 16, 17, 18, 19, 20, 21}, {true, true, true, true, false, true, true}));
-    restaurante.agregarEmpleado(Empleado("Francisco", Rol::MESERO, {22, 23, 24, 25, 26, 27, 28}, {true, false, true, true, true, true, true}));
-    restaurante.agregarEmpleado(Empleado("Gloria", Rol::MANAGER, {29, 30, 31}, {false, true, true, true, true, true, true}));
-    restaurante.agregarEmpleado(Empleado("Eduardo", Rol::MANAGER, {1, 2, 3, 4, 5, 6, 7}, {true, true, false, true, true, true, true}));
-    restaurante.agregarEmpleado(Empleado("Alicia", Rol::COCINERO, {8, 9, 10, 11, 12, 13, 14}, {true, true, true, true, false, true, true}));
-    restaurante.agregarEmpleado(Empleado("Julio", Rol::PASTELERO, {15, 16, 17, 18, 19, 20, 21}, {true, true, true, false, true, true, false}));
-    restaurante.agregarEmpleado(Empleado("Sara", Rol::MESERO, {22, 23, 24, 25, 26, 27, 28}, {true, true, false, true, true, false, true}));
-    restaurante.agregarEmpleado(Empleado("Marcos", Rol::COCINERO, {29, 30, 31}, {true, true, true, true, true, false, true}));
-    restaurante.agregarEmpleado(Empleado("Marcos2", Rol::PASTELERO, {29, 30, 31}, {true, true, true, true, true, false, true}));
-    restaurante.agregarEmpleado(Empleado("Marcos3", Rol::PASTELERO, {29, 30, 31}, {true, true, true, true, true, false, true}));
-    restaurante.agregarEmpleado(Empleado("Marcos4", Rol::PASTELERO, {29, 30, 31}, {true, true, true, true, true, false, true}));
-    restaurante.agregarEmpleado(Empleado("Marcos5", Rol::PASTELERO, {29, 30, 31}, {true, true, true, true, true, false, true}));
+    while (!in.atEnd()) {
+        line = in.readLine();
+        QStringList fields = line.split(',');
+
+        if (fields.size() < 6) continue; // Asegurarse de que haya suficientes campos
+
+        QString nombre = fields.at(0);
+        QString rol = fields.at(1);
+        QString disponibilidad = fields.at(2);
+        QString vacaciones = fields.at(3);
+        QString numero_celular = fields.at(4);
+        QString email = fields.at(5);
+
+        std::vector<bool> disponibilidadVec;
+        QStringList disponibilidadTokens = disponibilidad.split(' ');
+        for (const QString& token : disponibilidadTokens) {
+            disponibilidadVec.push_back(token == "1");
+        }
+
+        std::vector<int> vacacionesVec;
+        QStringList vacacionesTokens = vacaciones.split(' ');
+        for (const QString& token : vacacionesTokens) {
+            vacacionesVec.push_back(token.toInt());
+        }
+
+        restaurante.agregarEmpleado(Empleado(nombre.toStdString(), Empleado::stringToRol(rol.toStdString()), vacacionesVec, disponibilidadVec, numero_celular.toStdString(), email.toStdString()));
+    }
+
+    file.close();
+    //QMessageBox::information(this, "Importación", "Archivo CSV importado exitosamente");
 
 }
 
@@ -121,13 +113,13 @@ void MainWindow::verAsignaciones()
 void MainWindow::confirmarVerAsignaciones()
 {
     int dia = ui->spinBoxDiaAsignacion->value();
-    auto asignaciones = restaurante.getAsignaciones();
+    auto asignaciones = gestor->getAsignaciones();
     if (asignaciones.find(dia) != asignaciones.end()) {
         QString asignacionesStr;
         //asignacionesStr += "Día " + QString::number(dia) + ": ";
         for (const auto& empleado : asignaciones[dia]) {
             //TODO: NICO AQUI PUEDES CAMBIAR LO QUE SE MUESTRA EN LOS TRABAJADORES ASIGNADOS
-            asignacionesStr += QString::fromStdString(empleado.getNombre()) + " (" + QString::fromStdString(empleado.rolToString()) + ")\n";
+            asignacionesStr += QString::fromStdString(empleado.getNombre()) + " (" + QString::fromStdString(empleado.rolToString()) + "), contacto: " + QString::fromStdString(empleado.getNumeroCelular()) + " | " + QString::fromStdString(empleado.getCorreoElectronico()) + "\n";
         }
         ui->listWidgetAsignaciones->setText(asignacionesStr);
     } else {

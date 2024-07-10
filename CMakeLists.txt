@@ -19,12 +19,16 @@ set(PROJECT_SOURCES
         mainwindow.ui
 	    Restaurante.h
 	    Empleado.h
+        GestorAsignaciones.h
+        GestorAsignaciones.cpp
+        empleados.csv
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     qt_add_executable(proyecto-intro-poo
         MANUAL_FINALIZATION
         ${PROJECT_SOURCES}
+        resorce.qrc
     )
 # Define target properties for Android with Qt 6 as:
 #    set_property(TARGET proyecto-intro-poo APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR
