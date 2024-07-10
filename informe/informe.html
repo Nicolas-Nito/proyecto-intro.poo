@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informe del Proyecto de Gestión de Empleados para Restaurante</title>
+    <style>
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Informe del Proyecto de Gestión de Empleados para Restaurante</h1>
+
+    <h2>1. Descripción del Problema</h2>
+    <p>El proyecto busca resolver el problema de asignación de empleados en un restaurante, asegurando que los roles críticos se encuentren cubiertos para el funcionamiento diario. Este problema requiere considerar los roles de los empleados y su disponibilidad.</p>
+
+    <h2>2. Análisis del Problema</h2>
+    <p>El sistema de gestión de empleados del restaurante debe tener en cuenta varios elementos clave:</p>
+    <ul>
+        <li><strong>Empleado</strong>: Cada empleado tiene un rol específico, días de disponibilidad y días de vacaciones.</li>
+        <li><strong>Restaurante</strong>: El establecimiento requiere una cobertura adecuada de roles cada día, por ejemplo: 5 meseros, 2 cocineros, 1 pastelero y 1 manager.</li>
+        <li><strong>Gestor</strong>: El centro de gestión debe considerar los datos de los empleados y las necesidades del restaurante para cumplir con los requerimientos diarios de funcionamiento.</li>
+    </ul>
+    <p><strong>Interacciones con el Medio Externo</strong>:</p>
+    <p>La interacción externa consiste en cómo se proporciona la información de los empleados y las necesidades del restaurante, posiblemente en forma de documento. El resultado del proyecto es una asignación diaria optimizada de empleados que asegura una cobertura adecuada de los roles en el restaurante.</p>
+
+    <h2>3. Definición de Requerimientos</h2>
+    <h3>Casos de Uso</h3>
+
+    <h4>1) Ver Empleados</h4>
+    <p><strong>Nombre:</strong> Ver Empleados</p>
+    <p><strong>Propósito:</strong> Permitir al gestor del restaurante ver una lista de todos los empleados registrados en el sistema.</p>
+    <p><strong>Actores:</strong> Gestor del restaurante.</p>
+    <p><strong>Pre-condiciones:</strong> El archivo de empleados ya tuvo que ser leido por el programa.</p>
+    <p><strong>Evento:</strong> El gestor selecciona la opción "Ver Empleados" en la interfaz.</p>
+    <p><strong>Curso normal de eventos:</strong></p>
+    <img src="caso1.png" alt="Caso1">
+    <p><strong>Curso alternativo de eventos:</strong> Si el sistema no puede recuperar la lista de empleados, muestra una lista vacia.</p>
+    <p><strong>Requerimientos no funcionales:</strong>
+        <ul>
+            <li>El sistema debe mostrar la lista de empleados en menos de 3 segundos.</li>
+            <li>La interfaz debe ser intuitiva y fácil de usar.</li>
+        </ul>
+    </p>
+    <p><strong>Autor:</strong> Tomas</p>
+
+    <h4>2) Ver Empleado Asignado al Día del Mes</h4>
+    <p><strong>Nombre:</strong> Ver Empleado Asignado al Día del Mes</p>
+    <p><strong>Propósito:</strong> Permitir al usuario ver qué empleados están asignados a un día específico del mes.</p>
+    <p><strong>Actores:</strong> Gestor del restaurante.</p>
+    <p><strong>Pre-condiciones:</strong> El archivo de empleados ya tuvo que ser leido por el programa.</p>
+    <p><strong>Evento:</strong> El gestor selecciona la opción "Ver Empleado Asignado al Día del Mes" en la interfaz.</p>
+    <p><strong>Curso normal de eventos:</strong></p>
+    <img src="caso2.png" alt="Caso2">
+    <p><strong>Curso alternativo de eventos:</strong> Si el sistema no puede recuperar la lista de empleados asignados, muestra un mensaje de error al gestor.</p>
+    <p><strong>Requerimientos no funcionales:</strong>
+        <ul>
+            <li>El sistema debe mostrar la lista de empleados asignados en menos de 3 segundos.</li>
+            <li>La interfaz debe ser intuitiva y fácil de usar.</li>
+        </ul>
+    </p>
+    <p><strong>Autor:</strong> Pablo</p>
+
+    <h4>3)Asignar Empleados</h4>
+    <p><strong>Nombre:</strong> Asignar Empleados</p>
+    <p><strong>Propósito:</strong> Asignar empleados a cada día del mes, considerando disponibilidad y vacaciones.</p>
+    <p><strong>Actores:</strong> Gestor del restaurante.</p>
+    <p><strong>Pre-condiciones:</strong> El gestor debe estar autenticado en el sistema. Los datos de disponibilidad y vacaciones de los empleados deben estar actualizados.</p>
+    <p><strong>Evento:</strong> El gestor selecciona la opción "Asignar Empleados" en la interfaz.</p>
+    <p><strong>Curso normal de eventos:</strong></p>
+    <img src="caso3.png" alt="Caso3">
+    <p><strong>Curso alternativo de eventos:</strong></p>
+    <ul>
+        <li>Si el sistema no puede realizar la asignación inicial, muestra un mensaje de error al gestor.</li>
+        <li>Si el sistema no puede optimizar la asignación, muestra un mensaje de advertencia al gestor.</li>
+    </ul>
+    <p><strong>Requerimientos no funcionales:</strong>
+        <ul>
+            <li>El sistema debe completar la asignación en menos de 5 segundos.</li>
+            <li>La interfaz debe ser intuitiva y fácil de usar.</li>
+        </ul>
+    </p>
+    <p><strong>Autor:</strong> Nicolas</p>
+
+    <h2>4. Diseño</h2>
+    <h3>Diagrama de Clases</h3>
+    <img src="clases_actualizadas.png" alt="Diagrama de Clases">
+
+    <h3>Diagrama de Secuencia</h3>
+    <img src="diagrama_de_secuencia.png" alt="Diagrama de Secuencia">
+
+    <h2>6. Pruebas</h2>
+    <h3>Prueba 1: Asignación de Empleados con Disponibilidad Completa sin Vacaciones</h3>
+    <img src="prueba1.png" alt="Prueba 1: Asignación de Empleados">
+    <p>La captura de pantalla muestra la asignación exitosa de empleados para todos los días del mes. Como los empleados tienen disponibilidad completa y no tienen vacaciones, el sistema pudo asignar todos los roles críticos para cada día sin problemas.</p>
+
+    <h3>Prueba 2: Asignación de Empleados con Disponibilidad Parcial y sin Vacaciones</h3>
+    <img src="prueba2.png" alt="Prueba 2: Asignación de Empleados">
+    <p>La captura de pantalla muestra que el sistema pudo asignar empleados adecuadamente según su disponibilidad parcial. Los días que faltaban empleados se identificaron correctamente y se mostraron los mensajes de advertencia necesarios.</p>
+
+    <h3>Prueba 3: Asignación de Empleados con Disponibilidad Completa pero con Vacaciones Programadas</h3>
+    <img src="prueba3.png" alt="Prueba 3: Asignación de Empleados">
+    <p>La captura de pantalla muestra que el sistema respetó los días de vacaciones de los empleados y no los asignó en esos días. Los roles críticos se cubrieron adecuadamente para los días sin vacaciones.</p>
+
+    <h3>Dificultades Encontradas y Soluciones</h3>
+    <ul>
+        <li><strong>Asignación Desigual de Roles:</strong> Inicialmente, la asignación no tenía en cuenta adecuadamente los roles específicos, lo que resultó en días sin la cantidad requerida de ciertos roles. Se implementó un control más estricto sobre los roles requeridos para cada día, asegurando que todos los roles críticos se cubran.</li>
+        <li><strong>Disponibilidad Parcial Mal Manejada:</strong> Empleados con disponibilidad parcial eran asignados en días no disponibles. Mejorar la verificación de disponibilidad antes de la asignación para asegurar que los empleados solo sean asignados en días en los que están disponibles.</li>
+        <li><strong>Vacaciones No Respetadas:</strong> Los días de vacaciones de los empleados no se consideraban correctamente, lo que resultaba en asignaciones en días de vacaciones. Agregar verificaciones adicionales para los días de vacaciones durante el proceso de asignación para asegurar que los empleados no sean asignados en esos días.</li>
+    </ul>
+
+    <h3>Bugs Presentes</h3>
+    <ul>
+        <li><strong>Asignación Redundante:</strong> En algunos casos, empleados se asignan repetidamente a diferentes días aunque ya hayan alcanzado el máximo de días permitidos. Pendiente de solución. Se está trabajando en una mejora de la lógica de asignación para evitar redundancias.</li>
+        <li><strong>Optimización Ineficiente:</strong> El algoritmo de optimización a veces no encuentra la mejor solución posible debido a limitaciones en el enfoque de hill climbing. Pendiente de solución. Se está evaluando la implementación de técnicas adicionales de optimización para mejorar la eficiencia.</li>
+    </ul>
+
+    <h3>Link del repositorio</h3>
+    <p>https://github.com/Nicolas-Nito/proyecto-intro.poo/archive/refs/tags/release.tar.gz</p>
+</body>
+</html>
