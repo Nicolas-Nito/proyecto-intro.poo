@@ -19,6 +19,8 @@ set(PROJECT_SOURCES
         mainwindow.ui
 	    Restaurante.h
 	    Empleado.h
+        GestorAsignaciones.h
+        GestorAsignaciones.cpp
         empleados.csv
 )
 
