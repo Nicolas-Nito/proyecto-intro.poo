@@ -31,7 +31,7 @@ private slots:
 private:
     Ui::MainWindow *ui;
     Restaurante restaurante;
-    GestorAsignaciones gestor;
+    GestorAsignaciones* gestor;
     void loadCSV();
     Rol intToRol(int rol);
 };

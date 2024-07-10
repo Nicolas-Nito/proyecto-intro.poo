@@ -15,8 +15,6 @@
 #include <QTextStream>
 #include <QMessageBox>
 
-#define MAX_DAYS 13 // Definimos el máximo de días que un empleado puede trabajar en el mes
-
 class Restaurante {
 private:
     std::vector<Empleado> empleados;
@@ -37,7 +35,7 @@ public:
         return (it != empleados.end()) ? *it : Empleado("", Rol::PASTELERO, {}, {},"","");
     }
 
-    std::vector<Empleado> getEmpleados() const { return empleados; }
+    std::vector<Empleado>& getEmpleados() { return empleados; }
 
     bool verificarDisponibilidad(Rol rol, int dia) const {
         int count = std::count_if(empleados.begin(), empleados.end(),
